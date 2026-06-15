@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>SEESEC | About — Trusted Partner in Digital Transformation</title>
   
-  <!-- Fonts: Poppins as used in index page -->
+  <!-- Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* SEESEC Index Page Color Scheme */
+    /* SEESEC Color Scheme */
     :root {
       --ink: #1a1341;
       --paper: #f5f4ef;
@@ -80,6 +80,16 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0d0a2e; border-radius: 8px; }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 8px; }
+
+    /* Spline viewer */
+    spline-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+      background: transparent;
+    }
+    spline-viewer:active { cursor: grabbing; }
 
     /* Card hover */
     .card-hover {
@@ -207,7 +217,7 @@
     }
   </script>
 
-  <!-- Spline Viewer with error handling -->
+  <!-- Spline Viewer -->
   <script type="module">
     import('https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js').catch(e => {
       console.warn('Spline viewer failed to load:', e);
@@ -244,6 +254,7 @@
           <div class="flex-1 lg:max-w-xl animate-fade-up">
             <div class="section-label">AWS Advanced Partner</div>
             
+            <!-- Typewriter Heading -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.15] mb-6" style="color: #fff;">
               <span x-text="displayedText"></span>
               <span x-show="!typewriterDone" class="inline-block w-[3px] h-[1.1em] bg-[#43ee93] align-middle ml-1 animate-blink"></span>
@@ -277,7 +288,6 @@
             <div class="relative w-full h-[380px] sm:h-[440px] lg:h-[520px] rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm shadow-xl border border-white/10 animate-glow">
               <div class="absolute top-3 left-3 w-8 h-8 border-t-2 border-l-2 border-[#43ee93]/50 rounded-tl-lg z-10 pointer-events-none"></div>
               <div class="absolute bottom-3 right-3 w-8 h-8 border-b-2 border-r-2 border-[#43ee93]/50 rounded-br-lg z-10 pointer-events-none"></div>
-              <!-- Spline viewer with fallback -->
               <div id="splineViewerContainer" class="w-full h-full"></div>
             </div>
             
@@ -500,7 +510,6 @@
     window.addEventListener('DOMContentLoaded', function() {
       const container = document.getElementById('splineViewerContainer');
       if (container) {
-        // Create spline-viewer element
         const viewer = document.createElement('spline-viewer');
         viewer.setAttribute('url', 'https://prod.spline.design/CYYWjR739gNgcAK9/scene.splinecode');
         viewer.setAttribute('style', 'width:100%; height:100%; background: transparent;');
